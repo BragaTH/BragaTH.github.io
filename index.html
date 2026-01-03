@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚩 Jogo das Bandeiras - MODO EXTREMO</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Tela Inicial -->
+        <div id="startScreen" class="screen active">
+            <div class="logo">
+                <h1>🚩 Jogo das Bandeiras</h1>
+                <p class="subtitle">Modo Extremo - Teste seus conhecimentos ao máximo!</p>
+            </div>
+            <div class="game-info">
+                <div class="info-card">
+                    <span class="icon">🎯</span>
+                    <h3>15 Rodadas</h3>
+                    <p>Adivinhe a bandeira correta</p>
+                </div>
+                <div class="info-card">
+                    <span class="icon">⏱️</span>
+                    <h3>10 Segundos</h3>
+                    <p>Responda rápido para mais pontos</p>
+                </div>
+                <div class="info-card">
+                    <span class="icon">🏆</span>
+                    <h3>Pontuação</h3>
+                    <p>100 pontos + bônus de tempo</p>
+                </div>
+            </div>
+            <button class="btn-primary" onclick="startGame()">Começar Jogo</button>
+        </div>
+
+        <!-- Tela do Jogo -->
+        <div id="gameScreen" class="screen">
+            <div class="game-header">
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Rodada</span>
+                        <span class="stat-value" id="roundNumber">1/15</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Pontuação</span>
+                        <span class="stat-value" id="score">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Tempo</span>
+                        <span class="stat-value" id="timer">10s</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-content">
+                <div class="question-card">
+                    <h2>De qual país é esta bandeira?</h2>
+                    <div class="flag-container">
+                        <img id="flagImage" src="" alt="Bandeira do país">
+                    </div>
+                </div>
+
+                <div class="options-container" id="optionsContainer">
+                    <!-- Opções serão geradas dinamicamente -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Tela de Resultado -->
+        <div id="resultScreen" class="screen">
+            <div class="result-content">
+                <div class="result-icon" id="resultIcon">🎉</div>
+                <h1 id="resultTitle">Parabéns!</h1>
+                <div class="final-score">
+                    <span class="score-label">Pontuação Final</span>
+                    <span class="score-value" id="finalScore">0</span>
+                </div>
+                <div class="result-stats">
+                    <div class="result-stat">
+                        <span class="result-stat-value" id="correctAnswers">0</span>
+                        <span class="result-stat-label">Acertos</span>
+                    </div>
+                    <div class="result-stat">
+                        <span class="result-stat-value" id="accuracy">0%</span>
+                        <span class="result-stat-label">Precisão</span>
+                    </div>
+                </div>
+                <button class="btn-primary" onclick="restartGame()">Jogar Novamente</button>
+            </div>
+        </div>
+
+        <!-- Feedback de Resposta -->
+        <div id="answerFeedback" class="answer-feedback">
+            <div class="feedback-content">
+                <span class="feedback-icon" id="feedbackIcon"></span>
+                <span class="feedback-text" id="feedbackText"></span>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
