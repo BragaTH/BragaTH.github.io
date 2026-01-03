@@ -109,7 +109,7 @@ const similarGroups = [
 let currentRound = 0;
 let score = 0;
 let correctAnswers = 0;
-let timer = 10; // TEMPO DE RODADA
+let timer = 30; // ALTERAR TEMPO DA RODADA
 let timerInterval = null;
 let selectedCountries = [];
 let currentQuestion = null;
@@ -214,7 +214,7 @@ function nextRound() {
 
 // Função para iniciar o timer
 function startTimer() {
-    timer = 10; // REDUZIDO DE 15s PARA 10s
+    timer = 30; // ALTERAR TEMPO DA RODADA
     document.getElementById('timer').textContent = `${timer}s`;
     
     if (timerInterval) clearInterval(timerInterval);
