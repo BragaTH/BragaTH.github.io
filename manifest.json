@@ -1,0 +1,10 @@
+{
+  "name": "Jogo das Bandeiras",
+  "short_name": "Bandeiras",
+  "description": "Quiz de bandeiras — modo extremo",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#667eea",
+  "theme_color": "#5b4b8a",
+  "lang": "pt-BR"
+}
