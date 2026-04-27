@@ -1191,29 +1191,108 @@ body {
 }
 
 @media (max-width: 768px) {
+    body {
+        background: linear-gradient(135deg, #6b48ff 0%, #a855f7 45%, #3b82f6 100%);
+        background-attachment: scroll;
+        padding: 12px;
+    }
+
     .start-title {
         font-size: 2.1rem;
     }
 
-    .stats {
-        flex-direction: column;
+    /* --- Jogo (bandeiras): caber numa tela sem scroll --- */
+    #gameScreen {
+        padding: 18px;
+        border-radius: 22px;
     }
 
-    .question-card h2 {
-        font-size: 1.4rem;
+    #gameScreen .game-header {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 12px;
+        max-height: 60px;
     }
 
-    .flag-container {
-        min-height: 200px;
-        padding: 20px;
+    #gameScreen .btn-back {
+        flex-shrink: 0;
+        padding: 6px 10px;
+        font-size: 0.75rem;
+        gap: 4px;
     }
 
-    .flag-image {
-        max-height: 180px;
+    #gameScreen .btn-back__icon {
+        width: 14px;
+        height: 14px;
+    }
+
+    #gameScreen .stats {
+        flex-direction: row;
+        flex: 1;
+        min-width: 0;
+        gap: 9px;
+        justify-content: space-between;
+    }
+
+    #gameScreen .stat-item {
+        padding: 6px 8px;
+        border-radius: 12px;
+        box-shadow: 0 3px 10px rgba(102, 126, 234, 0.28);
+    }
+
+    #gameScreen .stat-label {
+        font-size: 0.55rem;
+        margin-bottom: 2px;
+        letter-spacing: 0.06em;
+    }
+
+    #gameScreen .stat-value {
+        font-size: 1.2rem;
+        line-height: 1.1;
+    }
+
+    #gameScreen .question-card {
+        margin-bottom: 10px;
+    }
+
+    #gameScreen .question-card h2 {
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+        line-height: 1.25;
+    }
+
+    #gameScreen .flag-container {
+        min-height: 0;
+        padding: 12px;
+        border-radius: 14px;
+    }
+
+    #gameScreen .flag-container.is-loading {
+        min-height: 110px;
+    }
+
+    #gameScreen .flag-image {
+        width: 100%;
+        max-width: 100%;
+        max-height: 160px;
+        object-fit: contain;
+    }
+
+    #gameScreen .options-container {
+        gap: 9px;
+    }
+
+    #gameScreen .option-btn {
+        padding: 12px 14px;
+        font-size: 0.9rem;
+        border-radius: 15px;
+        border-width: 2px;
     }
 
     #resultScreen {
-        padding: 30px 20px;
+        padding: 18px 14px;
     }
 
     .result-icon {

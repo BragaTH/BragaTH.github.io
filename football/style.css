@@ -1160,29 +1160,123 @@ body {
 }
 
 @media (max-width: 768px) {
+    body {
+        background: linear-gradient(135deg, #6b48ff 0%, #a855f7 45%, #3b82f6 100%);
+        background-attachment: scroll;
+        padding: 12px;
+    }
+
     .start-title {
         font-size: 2.1rem;
     }
 
-    .stats {
-        flex-direction: column;
+    /* --- Jogo (escudos): caber numa tela sem scroll --- */
+    #gameScreen {
+        padding-top: 36px;
+        padding-left: 18px;
+        padding-right: 18px;
+        padding-bottom: 18px;
+        border-radius: 22px;
     }
 
-    .question-card h2 {
-        font-size: 1.4rem;
+    #gameScreen .top-nav-menu--game {
+        top: 10px;
+        left: 18px;
+        padding: 6px 10px;
+        font-size: 0.75rem;
+        gap: 4px;
     }
 
-    .flag-container {
-        min-height: 200px;
-        padding: 20px;
+    #gameScreen .top-nav-menu--game svg {
+        width: 14px;
+        height: 14px;
     }
 
-    .flag-image {
-        max-height: 180px;
+    .game-time-bar {
+        height: 4px;
+        margin-bottom: 10px;
+    }
+
+    #gameScreen .game-header {
+        margin-bottom: 10px;
+        max-height: 60px;
+        align-items: center;
+    }
+
+    #gameScreen .stats {
+        flex-direction: row;
+        gap: 9px;
+        justify-content: space-between;
+    }
+
+    #gameScreen .stat-item {
+        padding: 6px 8px;
+        border-radius: 12px;
+        box-shadow: 0 3px 10px rgba(102, 126, 234, 0.28);
+    }
+
+    #gameScreen .stat-label {
+        font-size: 0.55rem;
+        margin-bottom: 2px;
+        letter-spacing: 0.06em;
+    }
+
+    #gameScreen .stat-value {
+        font-size: 1.2rem;
+        line-height: 1.1;
+    }
+
+    #gameScreen .question-card {
+        margin-bottom: 10px;
+    }
+
+    #gameScreen .crest-meta {
+        margin-bottom: 4px;
+        font-size: 0.62rem;
+    }
+
+    #gameScreen .crest-question {
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+        line-height: 1.25;
+    }
+
+    #gameScreen .crest-wrap {
+        min-height: 0;
+        padding: 12px;
+        border-radius: 14px;
+    }
+
+    #gameScreen .crest-wrap.is-loading {
+        min-height: 100px;
+    }
+
+    #gameScreen .crest-image {
+        width: 100%;
+        height: auto;
+        max-height: 160px;
+        object-fit: contain;
+    }
+
+    #gameScreen .crest-placeholder {
+        width: 100%;
+        height: 160px;
+        max-height: 160px;
+    }
+
+    #gameScreen .options-container {
+        gap: 9px;
+    }
+
+    #gameScreen .option-btn {
+        padding: 12px 14px;
+        font-size: 0.9rem;
+        border-radius: 15px;
+        border-width: 2px;
     }
 
     #resultScreen {
-        padding: 30px 20px;
+        padding: 18px 14px;
     }
 
     .result-icon {
@@ -1273,13 +1367,21 @@ body {
 
 #gameScreen {
     position: relative;
-    padding-top: 48px;
+}
+
+@media (min-width: 769px) {
+    #gameScreen {
+        padding-top: 48px;
+    }
+
+    #gameScreen .top-nav-menu--game {
+        top: 18px;
+        left: 30px;
+    }
 }
 
 #gameScreen .top-nav-menu--game {
     position: absolute;
-    top: 18px;
-    left: 30px;
     margin: 0;
     z-index: 2;
 }
