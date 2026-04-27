@@ -1,6 +1,6 @@
 {
-  "name": "Arcade de Quiz",
-  "short_name": "Arcade Quiz",
+  "name": "Escolha seu joguinho",
+  "short_name": "Joguinhos",
   "description": "Quiz de bandeiras e quiz de escudos de futebol",
   "start_url": "./",
   "display": "standalone",
