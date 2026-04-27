@@ -111,45 +111,14 @@ body {
     z-index: 1;
     width: 100%;
     max-width: 780px;
-    padding: 8px 0 32px;
-}
-
-#startScreen .start-shell {
-    padding-top: 48px;
+    padding: 48px 0 32px;
 }
 
 #startScreen .top-nav-menu {
     position: absolute;
-    top: 0;
+    top: 8px;
     left: 0;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
     margin: 0;
-    padding: 10px 16px;
-    border-radius: 12px;
-    font-size: 0.88rem;
-    font-weight: 600;
-    font-family: inherit;
-    color: rgba(255, 255, 255, 0.92);
-    text-decoration: none;
-    background: rgba(15, 23, 42, 0.28);
-    border: 1px solid rgba(255, 255, 255, 0.22);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    cursor: pointer;
-    transition: background 0.2s ease, border-color 0.2s ease;
-    -webkit-tap-highlight-color: transparent;
-}
-
-#startScreen .top-nav-menu:hover {
-    background: rgba(15, 23, 42, 0.42);
-    border-color: rgba(255, 255, 255, 0.35);
-}
-
-#startScreen .top-nav-menu:focus-visible {
-    outline: 2px solid rgba(255, 255, 255, 0.75);
-    outline-offset: 3px;
 }
 
 .hub-subtitle {
@@ -1239,3 +1208,222 @@ body {
         transform: translateY(0);
     }
 }
+
+/* --- Jogo dos Times (escudos) --- */
+.top-nav-menu {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    align-self: flex-start;
+    margin: 0 0 16px;
+    padding: 10px 16px;
+    border-radius: 12px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.92);
+    text-decoration: none;
+    background: rgba(15, 23, 42, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.top-nav-menu:hover {
+    background: rgba(15, 23, 42, 0.42);
+    border-color: rgba(255, 255, 255, 0.35);
+}
+
+.top-nav-menu--game,
+.top-nav-menu--result {
+    margin-bottom: 14px;
+}
+
+.glass-panel--single-mode {
+    padding: 26px 22px 22px;
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+.league-single-mode__title {
+    margin: 10px 0 0;
+    font-size: 1.35rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #fff;
+    line-height: 1.2;
+}
+
+.league-hint {
+    margin: 16px 0 0;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.68);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+}
+
+.league-hint--single {
+    margin-top: 12px;
+    padding-top: 12px;
+}
+
+#gameScreen {
+    position: relative;
+    padding-top: 48px;
+}
+
+#gameScreen .top-nav-menu--game {
+    position: absolute;
+    top: 18px;
+    left: 30px;
+    margin: 0;
+    z-index: 2;
+}
+
+.game-time-bar {
+    height: 6px;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+.game-time-bar__fill {
+    height: 100%;
+    width: 100%;
+    transform-origin: left center;
+    transform: scaleX(1);
+    border-radius: inherit;
+    background: linear-gradient(90deg, #667eea, #38bdf8, #a855f7);
+    transition: transform 0.25s linear;
+}
+
+.game-time-bar.is-hidden {
+    visibility: hidden;
+    height: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+.crest-meta {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #64748b;
+    margin-bottom: 8px;
+}
+
+.crest-question {
+    color: #333;
+    font-size: 1.35rem;
+    margin-bottom: 18px;
+    font-weight: 700;
+}
+
+.crest-wrap {
+    background: #f8f9fa;
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 240px;
+    position: relative;
+}
+
+.crest-wrap.is-loading {
+    min-height: 200px;
+}
+
+.crest-loader {
+    color: #555;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Blur + drop-shadow do escudo são aplicados em JS (sincronizados com o timer). */
+#crestImage,
+#crestPlaceholder {
+    will-change: filter;
+}
+
+.crest-image {
+    width: 200px;
+    height: 200px;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.crest-placeholder {
+    width: 200px;
+    height: 200px;
+    max-width: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+}
+
+.crest-placeholder svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.result-content {
+    position: relative;
+    width: 100%;
+    padding-top: 44px;
+}
+
+.top-nav-menu--result {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+}
+
+.result-league {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #64748b;
+    margin: -8px 0 24px;
+    letter-spacing: 0.04em;
+}
+
+.result-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: stretch;
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #667eea;
+    border: 2px solid #667eea;
+    padding: 14px 32px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 50px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.btn-secondary:hover {
+    background: rgba(102, 126, 234, 0.08);
+}
+

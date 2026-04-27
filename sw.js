@@ -1,5 +1,13 @@
-const CACHE = "flags-app-v1";
-const ASSETS = ["./index.html", "./style.css", "./game.js", "./manifest.json"];
+const CACHE = "flags-app-v6";
+const ASSETS = [
+    "./index.html",
+    "./style.css",
+    "./game.js",
+    "./manifest.json",
+    "./football/index.html",
+    "./football/style.css",
+    "./football/game.js"
+];
 
 self.addEventListener("install", (event) => {
     event.waitUntil(

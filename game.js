@@ -457,12 +457,17 @@ function startGame() {
     nextRound();
 }
 
-function abortToMenu() {
+/** Volta à tela de seleção de modo na raiz (hub). */
+function goToHub() {
     clearTick();
     clearAdvanceTimer();
     awaitingRoundAdvance = false;
     document.getElementById("answerFeedback").classList.remove("show");
-    showScreen("startScreen");
+    showScreen("hubScreen");
+}
+
+function abortToMenu() {
+    goToHub();
 }
 
 function showScreen(screenId) {
@@ -657,11 +662,23 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("btnStart").addEventListener("click", startGame);
     document.getElementById("btnRestart").addEventListener("click", restartGame);
     document.getElementById("btnBackToMenu").addEventListener("click", abortToMenu);
+    const btnResultToHub = document.getElementById("btnResultToHub");
+    if (btnResultToHub) btnResultToHub.addEventListener("click", goToHub);
+
+    const hubBtnFlags = document.getElementById("hubBtnFlags");
+    if (hubBtnFlags) {
+        hubBtnFlags.addEventListener("click", () => {
+            showScreen("startScreen");
+        });
+    }
+
+    const btnFlagsStartToHub = document.getElementById("btnFlagsStartToHub");
+    if (btnFlagsStartToHub) btnFlagsStartToHub.addEventListener("click", goToHub);
 
     document.querySelectorAll('input[name="difficulty"]').forEach((radio) => {
         radio.addEventListener("change", syncDifficultyHint);
     });
 
-    showScreen("startScreen");
+    showScreen("hubScreen");
     registerServiceWorker();
 });
