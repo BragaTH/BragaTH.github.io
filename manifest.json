@@ -1,6 +1,6 @@
 {
-  "name": "Escolha seu joguinho",
-  "short_name": "Joguinhos",
+  "name": "TH Dev Sênior",
+  "short_name": "TH Dev",
   "description": "Quiz de bandeiras e quiz de escudos de futebol",
   "start_url": "./",
   "display": "standalone",
